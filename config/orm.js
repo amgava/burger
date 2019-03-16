@@ -31,18 +31,18 @@ function convertObjToSQL(obj) {
 
 var orm = {
 
-    selectAll: function(tableInput, callback) {
+    selectAll: function(tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
             }
-            callback(result);
+            cb(result);
         })
     },
 
-    insertOne: function (tableOutput, column, val, callback) {
-        var queryString = "INSERT INTO " + tableOutput;
+    insertOne: function (table, column, val, cb) {
+        var queryString = "INSERT INTO " + table;
         queryString += "(";
         queryString += column.toString();
         queryString += ")";
@@ -56,12 +56,12 @@ var orm = {
                     throw err;
                 }
 
-                callback(result);
+                cb(result);
             })
     },
 
-    updateOne: function (tableOutput, objColVal, condition, callback) {
-        var queryString = "UPDATE " + tableOutput;
+    updateOne: function (table, objColVal, condition, cb) {
+        var queryString = "UPDATE " + table;
 
         queryString += " SET ";
         queryString += convertObjToSQL(objColVal);
@@ -74,7 +74,7 @@ var orm = {
                 throw err;
             }
 
-            callback(result);
+            cb(result);
         })
     }
 };

@@ -11,7 +11,6 @@ $(function() {
       data: newBurgerState
     }).then(
       function() {
-        console.log("changed sleep to", newBurgerState);
         location.reload();
       }
     );
@@ -23,7 +22,8 @@ $(function() {
     event.preventDefault();
 
     var newBurger = {
-      burger_name: $("#bn").val().trim()
+      burger_name: $("#bn").val().trim(),
+      devoured: false
     };
 
     $.ajax("/api/burgers", {

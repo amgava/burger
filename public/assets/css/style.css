@@ -1,0 +1,18 @@
+.not-yet {
+    display: inline-block;
+}
+
+body {
+    background-image: url("../images/burger.jpg;");
+    background-color: beige;
+    font-size: 14px;
+    font-family: 'Sniglet', cursive;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    padding-bottom: 10px;
+}
